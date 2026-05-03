@@ -6,6 +6,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight, MessageCircle, Star, Clock, Shield, Truck, Sparkles, Play } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { useAuth } from "@/contexts/auth-context"
 
 const floatingItems = [
   { icon: "🥗", label: "Fresh Sabzi", delay: 0 },
@@ -16,6 +17,7 @@ const floatingItems = [
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLDivElement>(null)
+  const { user } = useAuth()
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end start"],
@@ -183,7 +185,10 @@ export function HeroSection() {
                 className="rounded-full px-8 h-14 text-base border-black/15 hover:bg-black hover:text-[#FFFDF2] transition-all group"
               >
                 <a
-                  href="https://wa.me/918999246569?text=Hi%2C%20I%27m%20interested%20in%20your%20tiffin%20service"
+                  href={user 
+                    ? `https://wa.me/918999246569?text=${encodeURIComponent(`Hi, I'm ${user.name}. I'm interested in your tiffin service. Please share more details.`)}`
+                    : "https://wa.me/918999246569?text=Hi%2C%20I%27m%20interested%20in%20your%20tiffin%20service"
+                  }
                   target="_blank"
                   rel="noopener noreferrer"
                 >

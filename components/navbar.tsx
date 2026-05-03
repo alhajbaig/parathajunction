@@ -4,9 +4,10 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, Phone, ArrowRight } from "lucide-react"
+import { Menu, X, Phone, ArrowRight, User, LogOut } from "lucide-react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
+import { useAuth } from "@/contexts/auth-context"
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -20,6 +21,7 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const pathname = usePathname()
+  const { user } = useAuth()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -109,12 +111,34 @@ export function Navbar() {
                 </div>
                 <span>Call Now</span>
               </motion.a>
-              <Button asChild className="rounded-full px-6 shadow-lg shadow-black/10 hover:shadow-black/20 transition-shadow group bg-black text-[#FFFDF2] hover:bg-black/90 font-[family-name:var(--font-poppins)] font-semibold">
-                <Link href="/plans">
-                  Start Today
-                  <ArrowRight className="ml-1.5 h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
-                </Link>
-              </Button>
+
+              {user ? (
+                /* Logged-in: Profile Button */
+                <Button asChild className="rounded-full px-5 shadow-lg shadow-black/10 hover:shadow-black/20 transition-shadow group bg-black text-[#FFFDF2] hover:bg-black/90 font-[family-name:var(--font-poppins)] font-semibold">
+                  <Link href="/profile">
+                    <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#C8A960] text-black text-xs font-bold mr-2">
+                      {user.name.charAt(0).toUpperCase()}
+                    </div>
+                    {user.name.split(" ")[0]}
+                  </Link>
+                </Button>
+              ) : (
+                /* Not logged-in: Sign In + Start Today */
+                <>
+                  <Button variant="outline" asChild className="rounded-full px-5 border-black/10 hover:bg-black/5 font-[family-name:var(--font-poppins)] font-medium">
+                    <Link href="/login">
+                      <User className="h-4 w-4 mr-1.5" />
+                      Sign In
+                    </Link>
+                  </Button>
+                  <Button asChild className="rounded-full px-6 shadow-lg shadow-black/10 hover:shadow-black/20 transition-shadow group bg-black text-[#FFFDF2] hover:bg-black/90 font-[family-name:var(--font-poppins)] font-semibold">
+                    <Link href="/plans">
+                      Start Today
+                      <ArrowRight className="ml-1.5 h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
+                    </Link>
+                  </Button>
+                </>
+              )}
             </div>
 
             {/* Mobile Menu Button */}
@@ -212,12 +236,32 @@ export function Navbar() {
                     <span>Call: 8999246569</span>
                   </a>
                 </Button>
-                <Button asChild className="w-full rounded-xl h-12 bg-black text-[#FFFDF2] hover:bg-black/90 font-[family-name:var(--font-poppins)] font-semibold">
-                  <Link href="/plans">
-                    Start Your Subscription
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
+
+                {user ? (
+                  /* Logged-in mobile */
+                  <Button asChild className="w-full rounded-xl h-12 bg-black text-[#FFFDF2] hover:bg-black/90 font-[family-name:var(--font-poppins)] font-semibold">
+                    <Link href="/profile" onClick={() => setIsMobileMenuOpen(false)}>
+                      <User className="mr-2 h-4 w-4" />
+                      My Profile
+                    </Link>
+                  </Button>
+                ) : (
+                  /* Not logged-in mobile */
+                  <>
+                    <Button variant="outline" asChild className="w-full rounded-xl h-12 border-black/10 font-[family-name:var(--font-poppins)] font-semibold">
+                      <Link href="/login" onClick={() => setIsMobileMenuOpen(false)}>
+                        <User className="mr-2 h-4 w-4" />
+                        Sign In
+                      </Link>
+                    </Button>
+                    <Button asChild className="w-full rounded-xl h-12 bg-black text-[#FFFDF2] hover:bg-black/90 font-[family-name:var(--font-poppins)] font-semibold">
+                      <Link href="/signup" onClick={() => setIsMobileMenuOpen(false)}>
+                        Start Your Subscription
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </>
+                )}
               </motion.div>
             </motion.div>
           </>

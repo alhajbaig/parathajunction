@@ -3,11 +3,13 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Chatbot } from "@/components/chatbot"
 import { Button } from "@/components/ui/button"
-import { Check, Sparkles, ArrowRight, MessageCircle, Phone, HelpCircle } from "lucide-react"
+import { useAuth } from "@/contexts/auth-context"
+import { Check, Sparkles, ArrowRight, MessageCircle, Phone, HelpCircle, MapPin, X, User, AlertCircle } from "lucide-react"
 
 const plans = [
   {
@@ -89,6 +91,60 @@ const faqs = [
 
 export default function PlansPage() {
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null)
+  const [showAddressModal, setShowAddressModal] = useState(false)
+  const [selectedPlan, setSelectedPlan] = useState<string | null>(null)
+  const [addressInput, setAddressInput] = useState("")
+  const [addressError, setAddressError] = useState("")
+  const { user, updateAddress } = useAuth()
+  const router = useRouter()
+
+  const handleSubscribeClick = (planName: string) => {
+    if (!user) {
+      // Not logged in — redirect to signup
+      router.push("/signup")
+      return
+    }
+
+    // If user already has an address, proceed directly
+    if (user.address) {
+      setAddressInput(user.address)
+      openWhatsApp(planName, user.name, user.address)
+      return
+    }
+
+    // Show address modal
+    setSelectedPlan(planName)
+    setAddressInput("")
+    setAddressError("")
+    setShowAddressModal(true)
+  }
+
+  const handleConfirmAddress = () => {
+    if (!addressInput.trim()) {
+      setAddressError("Please enter your delivery address")
+      return
+    }
+    if (addressInput.trim().length < 10) {
+      setAddressError("Please enter a more detailed address")
+      return
+    }
+
+    // Save address to profile
+    updateAddress(addressInput.trim())
+
+    // Open WhatsApp
+    if (selectedPlan && user) {
+      openWhatsApp(selectedPlan, user.name, addressInput.trim())
+    }
+
+    setShowAddressModal(false)
+  }
+
+  const openWhatsApp = (planName: string, userName: string, address: string) => {
+    const message = `Hi, I'm ${userName}. I'm interested in the ${planName} plan.\n\nDelivery Address: ${address}\n\nPlease help me subscribe. Thank you!`
+    const encodedMessage = encodeURIComponent(message)
+    window.open(`https://wa.me/918999246569?text=${encodedMessage}`, "_blank")
+  }
 
   return (
     <main className="min-h-screen">
@@ -112,6 +168,15 @@ export default function PlansPage() {
             <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
               Affordable, flexible, and designed to fit your lifestyle. Start saving today!
             </p>
+            {user && (
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="mt-3 text-sm text-[#C8A960] font-medium font-[family-name:var(--font-poppins)]"
+              >
+                Welcome back, {user.name.split(" ")[0]}! 👋
+              </motion.p>
+            )}
           </motion.div>
         </div>
       </section>
@@ -210,7 +275,7 @@ export default function PlansPage() {
 
                   {/* CTA */}
                   <Button
-                    asChild
+                    onClick={() => handleSubscribeClick(plan.name)}
                     className={`w-full rounded-full h-12 text-base font-semibold ${
                       plan.popular
                         ? "bg-card text-primary hover:bg-card/90 shadow-lg"
@@ -218,15 +283,10 @@ export default function PlansPage() {
                     }`}
                     variant={plan.popular ? "secondary" : "default"}
                     size="lg"
+                    id={`subscribe-${plan.id}`}
                   >
-                    <a
-                      href={`https://wa.me/918999246569?text=Hi%2C%20I%27m%20interested%20in%20the%20${encodeURIComponent(plan.name)}%20plan`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Subscribe Now
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </a>
+                    Subscribe Now
+                    <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </motion.div>
               </motion.div>
@@ -358,6 +418,125 @@ export default function PlansPage() {
           </motion.div>
         </div>
       </section>
+
+      {/* Address Modal */}
+      <AnimatePresence>
+        {showAddressModal && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setShowAddressModal(false)}
+              className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm"
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              className="fixed z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md mx-4"
+            >
+              <div className="rounded-3xl bg-white shadow-2xl border border-black/8 overflow-hidden">
+                {/* Modal header */}
+                <div className="relative bg-black px-6 py-6 text-[#FFFDF2]">
+                  <div className="absolute inset-0 opacity-20">
+                    <div className="absolute top-0 right-0 h-32 w-32 rounded-full bg-[radial-gradient(circle,rgba(200,169,96,0.4)_0%,transparent_70%)]" />
+                  </div>
+                  <div className="relative flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#C8A960]/20">
+                        <MapPin className="h-5 w-5 text-[#C8A960]" />
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold font-[family-name:var(--font-playfair)]">Delivery Address</h3>
+                        <p className="text-xs text-[#FFFDF2]/60 font-[family-name:var(--font-poppins)]">Where should we deliver?</p>
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => setShowAddressModal(false)}
+                      className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+                    >
+                      <X className="h-4 w-4" />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Modal body */}
+                <div className="p-6 space-y-5">
+                  {/* User greeting */}
+                  {user && (
+                    <div className="flex items-center gap-3 rounded-xl bg-[#F5F0E1]/50 border border-[#C8A960]/10 px-4 py-3">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#C8A960] text-black text-sm font-bold font-[family-name:var(--font-playfair)]">
+                        {user.name.charAt(0).toUpperCase()}
+                      </div>
+                      <div>
+                        <p className="text-sm font-semibold text-black font-[family-name:var(--font-poppins)]">{user.name}</p>
+                        <p className="text-xs text-muted-foreground font-[family-name:var(--font-poppins)]">Subscribing for: {selectedPlan}</p>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Address input */}
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-black/70 font-[family-name:var(--font-poppins)]">
+                      Full Delivery Address <span className="text-red-500">*</span>
+                    </label>
+                    <textarea
+                      value={addressInput}
+                      onChange={(e) => {
+                        setAddressInput(e.target.value)
+                        setAddressError("")
+                      }}
+                      placeholder="e.g., Flat 301, Sunshine Apartments, Near ABC Chowk, Sadar, Nagpur - 440001"
+                      rows={3}
+                      className="w-full rounded-xl border border-black/10 bg-[#FFFDF2] px-4 py-3 text-sm text-black placeholder:text-muted-foreground/60 outline-none focus:border-[#C8A960] focus:ring-2 focus:ring-[#C8A960]/20 transition-all font-[family-name:var(--font-poppins)] resize-none"
+                      id="modal-address-input"
+                      autoFocus
+                    />
+                    {addressError && (
+                      <motion.p
+                        initial={{ opacity: 0, y: -5 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="text-xs text-red-500 flex items-center gap-1 font-[family-name:var(--font-poppins)]"
+                      >
+                        <AlertCircle className="h-3 w-3" />
+                        {addressError}
+                      </motion.p>
+                    )}
+                  </div>
+
+                  {/* Info note */}
+                  <div className="rounded-xl bg-blue-50 border border-blue-100 px-4 py-3">
+                    <p className="text-xs text-blue-700 font-[family-name:var(--font-poppins)]">
+                      📍 Your address will be saved to your profile and included in the WhatsApp message for seamless ordering.
+                    </p>
+                  </div>
+
+                  {/* Actions */}
+                  <div className="flex gap-3">
+                    <Button
+                      variant="outline"
+                      onClick={() => setShowAddressModal(false)}
+                      className="flex-1 rounded-xl border-black/10 font-[family-name:var(--font-poppins)]"
+                    >
+                      Cancel
+                    </Button>
+                    <Button
+                      onClick={handleConfirmAddress}
+                      className="flex-1 rounded-xl bg-black text-[#FFFDF2] hover:bg-black/90 font-[family-name:var(--font-poppins)] font-semibold group"
+                      id="confirm-subscribe"
+                    >
+                      Subscribe via WhatsApp
+                      <MessageCircle className="ml-2 h-4 w-4 group-hover:scale-110 transition-transform" />
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
 
       <Footer />
       <Chatbot />

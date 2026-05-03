@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import { Phone, Mail, MapPin, Instagram, Facebook, Twitter, ArrowUpRight, Heart } from "lucide-react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
+import { useAuth } from "@/contexts/auth-context"
 
 const footerLinks = {
   navigation: [
@@ -23,6 +24,12 @@ const footerLinks = {
 }
 
 export function Footer() {
+  const { user } = useAuth()
+
+  const whatsappHref = user
+    ? `https://wa.me/918999246569?text=${encodeURIComponent(`Hi, I'm ${user.name}. I want to receive daily menu updates.`)}`
+    : "https://wa.me/918999246569?text=Hi%2C%20I%20want%20to%20receive%20daily%20menu%20updates"
+
   return (
     <footer className="relative overflow-hidden bg-black grain">
       {/* Decorative Elements */}
@@ -237,7 +244,7 @@ export function Footer() {
             <div className="flex gap-3">
               <Button asChild className="rounded-full bg-[#C8A960] text-black hover:bg-[#D4C494] font-[family-name:var(--font-poppins)] font-semibold">
                 <a
-                  href="https://wa.me/918999246569?text=Hi%2C%20I%20want%20to%20receive%20daily%20menu%20updates"
+                  href={whatsappHref}
                   target="_blank"
                   rel="noopener noreferrer"
                 >

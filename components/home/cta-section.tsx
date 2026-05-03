@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import { ArrowRight, Check, Sparkles, Crown } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { useAuth } from "@/contexts/auth-context"
 
 const plans = [
   {
@@ -36,6 +37,8 @@ const plans = [
 ]
 
 export function CTASection() {
+  const { user } = useAuth()
+
   return (
     <section className="py-24 lg:py-32 relative overflow-hidden grain">
       {/* Background */}
