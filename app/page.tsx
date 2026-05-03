@@ -8,10 +8,12 @@ import { DeliverySection } from "@/components/home/delivery-section"
 import { GallerySection } from "@/components/home/gallery-section"
 import { TestimonialsSection } from "@/components/home/testimonials-section"
 import { CTASection } from "@/components/home/cta-section"
+import { Preloader } from "@/components/preloader"
 
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-[#FFFDF2]">
+      <Preloader />
       <Navbar />
       <HeroSection />
       <TrustSection />

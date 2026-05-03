@@ -65,6 +65,9 @@ export function HeroSection() {
               transition={{ duration: 1.2, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="space-y-5"
             >
+              <h2 className="text-[#C8A960] font-[family-name:var(--font-poppins)] font-semibold tracking-wider uppercase text-sm sm:text-base">
+                Welcome to Paratha Junction Cloud Kitchen Tiffin Junction
+              </h2>
               <h1 className="text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl text-balance">
                 <span className="font-[family-name:var(--font-playfair)] italic text-black">Homely Meals,</span>{" "}
                 <br className="hidden sm:block" />
