@@ -12,7 +12,7 @@ const reviews = [
   {
     id: 1,
     name: "Rahul Sharma",
-    location: "Dharampeth, Nagpur",
+    location: "Borgaon, Nagpur",
     rating: 5,
     review: "Best tiffin service in Nagpur! The food tastes exactly like home-cooked meals. Been using their service for 6 months now and never disappointed. The dal and sabzi are always fresh and flavorful.",
     date: "2 weeks ago",
@@ -32,7 +32,7 @@ const reviews = [
   {
     id: 3,
     name: "Aman Verma",
-    location: "Civil Lines, Nagpur",
+    location: "Friends Colony, Nagpur",
     rating: 4,
     review: "Perfect balance of taste and price for working professionals. The portion size is adequate and the variety in menu keeps things interesting. Would love more options for low-carb meals.",
     date: "3 weeks ago",

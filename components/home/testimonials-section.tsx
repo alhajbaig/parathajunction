@@ -10,7 +10,7 @@ const testimonials = [
   {
     id: 1,
     name: "Rahul Sharma",
-    location: "Dharampeth, Nagpur",
+    location: "Borgaon, Nagpur",
     rating: 5,
     text: "Best tiffin service in Nagpur! The food tastes exactly like home-cooked meals. Been using their service for 6 months now and never disappointed.",
     avatar: "RS",
@@ -28,7 +28,7 @@ const testimonials = [
   {
     id: 3,
     name: "Aman Verma",
-    location: "Civil Lines, Nagpur",
+    location: "Friends Colony, Nagpur",
     rating: 5,
     text: "Perfect balance of taste and price for working professionals. The portion size is adequate and the variety in menu keeps things interesting.",
     avatar: "AV",
