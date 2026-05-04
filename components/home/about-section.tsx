@@ -50,57 +50,81 @@ export function AboutSection() {
                 At Paratha Junction, we believe that nobody should have to compromise on the taste and hygiene of home-cooked food. Our journey started with a simple mission: to deliver premium, nutritious, and absolutely delicious daily tiffins to the hardworking people of Nagpur.
               </p>
               <p>
-                Under the visionary leadership of our Director, <strong className="text-[#C8A960] font-semibold">Vicky Baig (Azaan Baig)</strong>, we have transformed from a humble kitchen into Nagpur&apos;s No.1 Premium Tiffin Service. 
+                Under the visionary leadership of our Director, <strong className="text-[#C8A960] font-semibold">Vicky Baig</strong>, and our Co-founder, <strong className="text-[#C8A960] font-semibold">Kaniz Fatema</strong>, we have transformed from a humble kitchen into Nagpur&apos;s No.1 Premium Tiffin Service. 
               </p>
               <p>
-                His uncompromising dedication to quality, FSSAI-certified hygiene standards, and the warmth of a mother&apos;s recipe has allowed us to serve over 500+ happy families daily, redefining the standard for meal subscriptions in the city.
+                Their uncompromising dedication to quality, FSSAI-certified hygiene standards, and the warmth of a mother&apos;s recipe has allowed us to serve over 500+ happy families daily, redefining the standard for meal subscriptions in the city.
               </p>
             </div>
 
-            <div className="pt-6 border-t border-white/10 flex items-center gap-6">
+            <div className="pt-6 border-t border-white/10 flex flex-wrap items-center gap-10">
               <div>
-                <p className="text-xl font-bold text-[#FFFDF2] font-[family-name:var(--font-playfair)]">Vicky Baig (Azaan Baig)</p>
+                <p className="text-xl font-bold text-[#FFFDF2] font-[family-name:var(--font-playfair)]">Vicky Baig</p>
                 <p className="text-sm text-[#C8A960] font-[family-name:var(--font-poppins)] uppercase tracking-widest mt-1">Director & Founder</p>
+              </div>
+              <div>
+                <p className="text-xl font-bold text-[#FFFDF2] font-[family-name:var(--font-playfair)]">Kaniz Fatema</p>
+                <p className="text-sm text-[#C8A960] font-[family-name:var(--font-poppins)] uppercase tracking-widest mt-1">Co-Founder</p>
               </div>
             </div>
           </motion.div>
 
-          {/* Right: Photo */}
-          <motion.div
-            style={{ y: imgY }}
-            initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
-            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="relative perspective-container z-10"
-          >
-            <div className="relative aspect-[3/4] w-full max-w-md mx-auto rounded-3xl overflow-hidden border border-[#C8A960]/20 shadow-2xl shadow-[#C8A960]/10 bg-black/40">
-              <Image
-                src="/images/director.jpg"
-                alt="Vicky Baig (Azaan Baig) - Director of Paratha Junction"
-                fill
-                className="object-cover"
-                onError={(e) => {
-                  // Hide image if placeholder doesn't exist yet so it doesn't look broken
-                  e.currentTarget.style.display = 'none';
-                }}
-              />
-              <div className="absolute inset-0 flex items-center justify-center text-[#FFFDF2]/20 font-[family-name:var(--font-poppins)] -z-10">
-                Photo Placeholder
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+          {/* Right: Photos */}
+          <div className="relative w-full max-w-lg mx-auto z-10 mt-10 lg:mt-0">
+            <div className="grid grid-cols-2 gap-4 sm:gap-6 relative z-10">
               
-              <div className="absolute bottom-8 left-8 right-8">
-                <Quote className="h-10 w-10 text-[#C8A960] mb-4 opacity-50" />
-                <p className="text-lg text-[#FFFDF2] font-[family-name:var(--font-playfair)] italic leading-relaxed">
-                  &ldquo;Food is not just fuel; it is the feeling of home. We cook every meal as if we are feeding our own family.&rdquo;
-                </p>
-              </div>
+              {/* Vicky Baig Photo (Left) */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                className="relative aspect-[3/4] w-full rounded-3xl overflow-hidden border border-[#C8A960]/20 shadow-2xl shadow-black/40 bg-black/40 group mt-12"
+              >
+                <Image
+                  src="/images/director.jpg"
+                  alt="Vicky Baig - Director"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+                <div className="absolute bottom-6 left-5 right-5">
+                  <p className="text-lg text-[#FFFDF2] font-bold font-[family-name:var(--font-playfair)] leading-tight">Vicky Baig</p>
+                  <p className="text-[10px] text-[#C8A960] font-[family-name:var(--font-poppins)] uppercase tracking-widest mt-1">Director</p>
+                </div>
+              </motion.div>
+
+              {/* Kaniz Fatema Photo (Right) */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                className="relative aspect-[3/4] w-full rounded-3xl overflow-hidden border border-[#C8A960]/20 shadow-2xl shadow-black/40 bg-black/40 group"
+              >
+                <Image
+                  src="/images/kaniz-fatema.jpg"
+                  alt="Kaniz Fatema - Co-Founder"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+                <div className="absolute bottom-6 left-5 right-5">
+                  <p className="text-lg text-[#FFFDF2] font-bold font-[family-name:var(--font-playfair)] leading-tight">Kaniz Fatema</p>
+                  <p className="text-[10px] text-[#C8A960] font-[family-name:var(--font-poppins)] uppercase tracking-widest mt-1">Co-Founder</p>
+                </div>
+              </motion.div>
+
             </div>
             
             {/* Decorative background block */}
-            <div className="absolute -inset-4 border border-[#C8A960]/10 rounded-[2.5rem] -z-10 translate-x-4 translate-y-4" />
-          </motion.div>
+            <motion.div 
+              style={{ y: imgY }}
+              className="absolute -inset-6 border border-[#C8A960]/15 rounded-[2.5rem] -z-10 bg-[#C8A960]/5" 
+            />
+          </div>
         </div>
       </div>
 

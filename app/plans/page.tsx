@@ -30,6 +30,25 @@ const plans = [
     badge: null,
   },
   {
+    id: "student",
+    name: "Student Share Plan",
+    emoji: "🎓",
+    price: 3600,
+    pricePerMeal: 60,
+    period: "per month",
+    description: "2 people share 1 box! Very affordable for students.",
+    features: [
+      "Double quantity in 1 box",
+      "Only ₹60 per person per meal",
+      "Perfect for roommates",
+      "30 days subscription",
+      "Fresh homely food",
+      "Save maximum together",
+    ],
+    popular: true,
+    badge: "Student Special",
+  },
+  {
     id: "smart",
     name: "Smart Subscription",
     emoji: "🍱",
@@ -45,7 +64,7 @@ const plans = [
       "Pause anytime feature",
       "Weekly menu variety",
     ],
-    popular: true,
+    popular: false,
     badge: "Most Popular",
   },
   {
@@ -184,7 +203,7 @@ export default function PlansPage() {
       {/* Plans Section */}
       <section className="py-12 lg:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-8 lg:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-4">
             {plans.map((plan, index) => (
               <motion.div
                 key={plan.id}

@@ -39,7 +39,7 @@ const features = [
   {
     icon: Truck,
     title: "Wide Coverage",
-    description: "Serving Sadar, Mankapur, Godhni, Jafar Nagar, Gittikhadan, Friends Colony, Borgaon & Palloti Area.",
+    description: "Serving Sadar, Mankapur, Godhni, Zingabai Takli, Mangalwari, Seminary Hills, Civil Lines and many more areas.",
     accent: "#C8A960",
   },
 ]
@@ -105,8 +105,8 @@ export function FeaturesSection() {
               >
                 <div className="relative aspect-[3/4]">
                   <Image
-                    src="/images/kitchen-cooking.png"
-                    alt="Our hygienic kitchen where fresh meals are prepared daily"
+                    src="/images/tiffin-feature.jpg"
+                    alt="Premium Milton Tiffin Box from Paratha Junction"
                     fill
                     className="object-cover"
                   />
@@ -116,8 +116,8 @@ export function FeaturesSection() {
                 {/* Bottom Label */}
                 <div className="absolute bottom-0 inset-x-0 p-6">
                   <div className="glass-dark rounded-2xl p-4">
-                    <p className="text-sm font-semibold text-[#FFFDF2] font-[family-name:var(--font-playfair)]">Our Hygienic Kitchen</p>
-                    <p className="text-xs text-[#FFFDF2]/60 font-[family-name:var(--font-poppins)]">Where love meets cooking</p>
+                    <p className="text-sm font-semibold text-[#FFFDF2] font-[family-name:var(--font-playfair)]">Premium Milton Tiffin</p>
+                    <p className="text-xs text-[#FFFDF2]/60 font-[family-name:var(--font-poppins)]">Food stays hot & fresh</p>
                   </div>
                 </div>
               </motion.div>

@@ -262,6 +262,27 @@ export function HeroSection() {
                 </motion.div>
               </motion.div>
 
+              {/* Secondary Tiffin Box Image */}
+              <motion.div
+                initial={{ opacity: 0, x: -50, rotate: -15 }}
+                animate={{ opacity: 1, x: 0, rotate: -6 }}
+                transition={{ duration: 1, delay: 0.8, type: "spring" }}
+                className="absolute -left-16 sm:-left-32 top-1/3 -translate-y-1/2 w-40 sm:w-56 aspect-[3/4] z-20 rounded-2xl overflow-hidden shadow-2xl shadow-black/20 border-4 border-white"
+              >
+                <motion.div
+                  animate={{ y: [0, -12, 0] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                  className="w-full h-full relative"
+                >
+                  <Image
+                    src="/images/tiffin-milton.jpg"
+                    alt="Paratha Junction Milton Tiffin Box"
+                    fill
+                    className="object-cover w-full h-full"
+                  />
+                </motion.div>
+              </motion.div>
+
               {/* Floating Food Cards */}
               {floatingItems.map((item, index) => {
                 const positions = [
@@ -276,7 +297,7 @@ export function HeroSection() {
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.8 + item.delay, type: "spring" }}
-                    className={`absolute ${positions[index]}`}
+                    className={`absolute ${positions[index]} z-30`}
                   >
                     <motion.div
                       animate={{ 
