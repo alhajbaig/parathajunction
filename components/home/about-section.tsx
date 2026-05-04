@@ -78,8 +78,9 @@ export function AboutSection() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
+                whileHover={{ y: -10, rotate: -2 }}
                 transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                className="relative aspect-[3/4] w-full rounded-3xl overflow-hidden border border-[#C8A960]/20 shadow-2xl shadow-black/40 bg-black/40 group mt-12"
+                className="relative aspect-[3/4] w-full rounded-3xl overflow-hidden border-2 border-[#C8A960]/40 shadow-2xl shadow-[#C8A960]/20 bg-black/40 group mt-12 cursor-pointer"
               >
                 <Image
                   src="/images/director.jpg"
@@ -88,10 +89,13 @@ export function AboutSection() {
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                   onError={(e) => { e.currentTarget.style.display = 'none'; }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
-                <div className="absolute bottom-6 left-5 right-5">
-                  <p className="text-lg text-[#FFFDF2] font-bold font-[family-name:var(--font-playfair)] leading-tight">Vicky Baig</p>
-                  <p className="text-[10px] text-[#C8A960] font-[family-name:var(--font-poppins)] uppercase tracking-widest mt-1">Director</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                {/* Floating Name Badge */}
+                <div className="absolute bottom-4 left-4 right-4 rounded-xl bg-black/80 backdrop-blur-md border border-[#C8A960]/40 p-3 sm:p-4 shadow-2xl shadow-black/50 translate-y-2 group-hover:-translate-y-2 transition-all duration-500">
+                  <p className="text-base sm:text-lg text-[#FFFDF2] font-bold font-[family-name:var(--font-playfair)] leading-tight text-center">Vicky Baig</p>
+                  <div className="mx-auto mt-2 h-px w-8 bg-[#C8A960]/50" />
+                  <p className="text-[9px] sm:text-[10px] text-[#C8A960] font-[family-name:var(--font-poppins)] uppercase tracking-widest mt-2 text-center">Director</p>
                 </div>
               </motion.div>
 
@@ -100,8 +104,9 @@ export function AboutSection() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
+                whileHover={{ y: -10, rotate: 2 }}
                 transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                className="relative aspect-[3/4] w-full rounded-3xl overflow-hidden border border-[#C8A960]/20 shadow-2xl shadow-black/40 bg-black/40 group"
+                className="relative aspect-[3/4] w-full rounded-3xl overflow-hidden border-2 border-[#C8A960]/40 shadow-2xl shadow-[#C8A960]/20 bg-black/40 group cursor-pointer"
               >
                 <Image
                   src="/images/kaniz-fatema.jpg"
@@ -110,10 +115,13 @@ export function AboutSection() {
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                   onError={(e) => { e.currentTarget.style.display = 'none'; }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
-                <div className="absolute bottom-6 left-5 right-5">
-                  <p className="text-lg text-[#FFFDF2] font-bold font-[family-name:var(--font-playfair)] leading-tight">Kaniz Fatema</p>
-                  <p className="text-[10px] text-[#C8A960] font-[family-name:var(--font-poppins)] uppercase tracking-widest mt-1">Co-Founder</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                {/* Floating Name Badge */}
+                <div className="absolute bottom-4 left-4 right-4 rounded-xl bg-black/80 backdrop-blur-md border border-[#C8A960]/40 p-3 sm:p-4 shadow-2xl shadow-black/50 translate-y-2 group-hover:-translate-y-2 transition-all duration-500">
+                  <p className="text-base sm:text-lg text-[#FFFDF2] font-bold font-[family-name:var(--font-playfair)] leading-tight text-center">Kaniz Fatema</p>
+                  <div className="mx-auto mt-2 h-px w-8 bg-[#C8A960]/50" />
+                  <p className="text-[9px] sm:text-[10px] text-[#C8A960] font-[family-name:var(--font-poppins)] uppercase tracking-widest mt-2 text-center">Co-Founder</p>
                 </div>
               </motion.div>
 
