@@ -58,7 +58,7 @@ export function Footer() {
               </div>
               <div>
                 <p className="text-lg font-bold text-[#FFFDF2] font-[family-name:var(--font-playfair)]">Paratha Junction</p>
-                <p className="text-[10px] text-[#FFFDF2]/40 font-medium tracking-widest uppercase font-[family-name:var(--font-poppins)]">Cloud Kitchen & Tiffin</p>
+                <p className="text-[10px] text-[#FFFDF2]/40 font-medium tracking-widest uppercase font-[family-name:var(--font-poppins)]">Premium Tiffin Service</p>
               </div>
             </div>
             <p className="text-sm text-[#FFFDF2]/50 leading-relaxed max-w-sm font-[family-name:var(--font-poppins)]">
@@ -269,7 +269,7 @@ export function Footer() {
               Made with <Heart className="h-3.5 w-3.5 fill-[#C8A960] text-[#C8A960]" /> in Nagpur
             </p>
             <p className="text-sm text-[#FFFDF2]/30 font-[family-name:var(--font-poppins)]">
-              Paratha Junction Cloud Kitchen &copy; 2026
+              Paratha Junction Tiffin Service &copy; 2026
             </p>
             <div className="flex items-center gap-4 text-sm text-[#FFFDF2]/30 font-[family-name:var(--font-poppins)]">
               <Link href="#" className="transition-colors hover:text-[#C8A960]">

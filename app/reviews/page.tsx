@@ -42,7 +42,7 @@ const reviews = [
   {
     id: 4,
     name: "Sneha Patil",
-    location: "Sitabuldi, Nagpur",
+    location: "Gorewada, Nagpur",
     rating: 5,
     review: "As a student living away from home, this service is a blessing! The food reminds me of my mom's cooking. The Sunday special biryani is absolutely delicious. Thank you Paratha Junction!",
     date: "1 week ago",

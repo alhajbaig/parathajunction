@@ -25,12 +25,12 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: 'Paratha Junction — Premium Cloud Kitchen & Tiffin Services | Nagpur',
+  title: 'Paratha Junction — Premium Tiffin Service | Nagpur',
   description: 'Nagpur\'s No.1 Premium Tiffin Service. Fresh, Hygienic, Homely Meals Delivered Daily. 5-Box Insulated Tiffin. Trusted by 5000+ happy customers. Starting at ₹80/meal.',
   keywords: ['tiffin service', 'nagpur', 'home food delivery', 'meal subscription', 'paratha junction', 'homely meals', 'cloud kitchen', 'premium tiffin'],
   authors: [{ name: 'Paratha Junction' }],
   openGraph: {
-    title: 'Paratha Junction — Premium Cloud Kitchen & Tiffin Services | Nagpur',
+    title: 'Paratha Junction — Premium Tiffin Service | Nagpur',
     description: 'Fresh, Hygienic, Homely Meals Delivered Daily in Nagpur. Trusted by 5000+ happy customers.',
     type: 'website',
     locale: 'en_IN',

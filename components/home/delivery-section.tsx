@@ -1,13 +1,14 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, useScroll, useTransform } from "framer-motion"
+import { useRef } from "react"
 import Image from "next/image"
 import { MapPin, Clock, Truck, Phone, CheckCircle } from "lucide-react"
 
 const coverageAreas = [
   "Sadar", "Mankapur", "Godhni", "Jafar Nagar",
   "Gittikhadan", "Friends Colony", "Borgaon", "Palloti Area",
-  "Anant Nagar", "Sitabuldi",
+  "Anant Nagar", "Gorewada", "Om Nagar", "Civil Lines",
 ]
 
 const deliveryFeatures = [
@@ -17,12 +18,22 @@ const deliveryFeatures = [
 ]
 
 export function DeliverySection() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  })
+  
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"])
+  const bannerX = useTransform(scrollYProgress, [0, 1], ["-20%", "30%"])
+
   return (
-    <section className="py-24 lg:py-32 relative overflow-hidden bg-[#F5F0E1] grain">
+    <section ref={sectionRef} className="py-24 lg:py-32 relative overflow-hidden bg-[#F5F0E1] grain">
       {/* Decorative elements */}
-      <div className="absolute inset-0 -z-10">
+      <motion.div style={{ y: bgY }} className="absolute inset-0 -z-10">
         <div className="absolute top-20 right-20 h-[300px] w-[300px] rounded-full bg-[radial-gradient(circle,rgba(200,169,96,0.1)_0%,transparent_70%)]" />
-      </div>
+        <div className="absolute bottom-1/3 left-10 h-32 w-32 rounded-full border-2 border-black/5 border-dashed" />
+      </motion.div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -147,8 +158,27 @@ export function DeliverySection() {
         </div>
       </div>
 
+      {/* Interactive Scroll Banner */}
+      <div className="absolute bottom-1/4 left-0 right-0 w-full overflow-hidden flex whitespace-nowrap opacity-[0.05] pointer-events-none select-none z-0">
+        <motion.div
+          style={{ x: bannerX }}
+          className="flex gap-12 items-center"
+        >
+          {[...Array(4)].map((_, i) => (
+            <div key={i} className="flex gap-12 items-center">
+              <span className="text-[12vw] font-black font-[family-name:var(--font-playfair)] tracking-tighter uppercase text-black">
+                Fast Delivery
+              </span>
+              <span className="text-[12vw] font-black font-[family-name:var(--font-playfair)] tracking-tighter uppercase text-transparent" style={{ WebkitTextStroke: "2px black" }}>
+                Hot Food
+              </span>
+            </div>
+          ))}
+        </motion.div>
+      </div>
+
       {/* Bottom Separator */}
-      <div className="absolute bottom-0 left-0 right-0 section-separator" />
+      <div className="absolute bottom-0 left-0 right-0 section-separator z-10" />
     </section>
   )
 }

@@ -127,6 +127,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         if (error.message.includes("already registered")) {
           return { success: false, error: "An account with this email already exists. Please sign in." }
         }
+        if (error.message.toLowerCase().includes("rate limit") || error.message.toLowerCase().includes("limit exceeded")) {
+          return { success: false, error: "Email rate limit exceeded! If you are testing, please go to your Supabase Dashboard -> Authentication -> Providers -> Email -> and disable 'Confirm email'." }
+        }
         return { success: false, error: error.message }
       }
 

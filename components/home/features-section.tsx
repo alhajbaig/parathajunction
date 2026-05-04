@@ -1,6 +1,7 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, useScroll, useTransform } from "framer-motion"
+import { useRef } from "react"
 import Image from "next/image"
 import { Shield, Flame, Wallet, Clock, Heart, Truck } from "lucide-react"
 
@@ -44,13 +45,26 @@ const features = [
 ]
 
 export function FeaturesSection() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  })
+  
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"])
+  const bannerX = useTransform(scrollYProgress, [0, 1], ["10%", "-40%"])
+
   return (
-    <section className="py-24 lg:py-32 relative overflow-hidden grain">
-      {/* Subtle background accents */}
-      <div className="absolute inset-0 -z-10">
+    <section ref={sectionRef} className="py-24 lg:py-32 relative overflow-hidden grain">
+      {/* Subtle background accents with parallax */}
+      <motion.div style={{ y: bgY }} className="absolute inset-0 -z-10">
         <div className="absolute top-0 right-0 h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle,rgba(200,169,96,0.05)_0%,transparent_70%)]" />
         <div className="absolute bottom-0 left-0 h-[400px] w-[400px] rounded-full bg-[radial-gradient(circle,rgba(200,169,96,0.04)_0%,transparent_70%)]" />
-      </div>
+        
+        {/* Parallax floating shapes */}
+        <div className="absolute top-1/4 left-10 h-32 w-32 rounded-full border border-[#C8A960]/10" />
+        <div className="absolute bottom-1/4 right-10 h-48 w-48 rounded-full border border-black/5" />
+      </motion.div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -92,7 +106,7 @@ export function FeaturesSection() {
                 <div className="relative aspect-[3/4]">
                   <Image
                     src="/images/kitchen-cooking.png"
-                    alt="Our hygienic cloud kitchen where fresh meals are prepared daily"
+                    alt="Our hygienic kitchen where fresh meals are prepared daily"
                     fill
                     className="object-cover"
                   />
@@ -202,6 +216,25 @@ export function FeaturesSection() {
           <p className="text-lg font-medium text-black font-[family-name:var(--font-playfair)]">
             Over <span className="gradient-text font-bold text-xl">500+ families</span> trust us daily
           </p>
+        </motion.div>
+      </div>
+
+      {/* Interactive Scroll Banner */}
+      <div className="absolute top-1/2 left-0 right-0 w-full overflow-hidden flex whitespace-nowrap opacity-[0.05] pointer-events-none select-none -z-10 -translate-y-1/2">
+        <motion.div
+          style={{ x: bannerX }}
+          className="flex gap-12 items-center"
+        >
+          {[...Array(4)].map((_, i) => (
+            <div key={i} className="flex gap-12 items-center">
+              <span className="text-[15vw] font-black font-[family-name:var(--font-playfair)] tracking-tighter uppercase text-black">
+                Quality
+              </span>
+              <span className="text-[15vw] font-black font-[family-name:var(--font-playfair)] tracking-tighter uppercase text-transparent" style={{ WebkitTextStroke: "2px black" }}>
+                Hygiene
+              </span>
+            </div>
+          ))}
         </motion.div>
       </div>
 

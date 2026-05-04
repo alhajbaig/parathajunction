@@ -1,7 +1,8 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
+import { useRef } from "react"
 import Link from "next/link"
 import { Star, Quote, ChevronLeft, ChevronRight, ArrowRight, MapPin } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -37,7 +38,7 @@ const testimonials = [
   {
     id: 4,
     name: "Sneha Patil",
-    location: "Sitabuldi, Nagpur",
+    location: "Gorewada, Nagpur",
     rating: 5,
     text: "As a student living away from home, this service is a blessing! The food reminds me of my mom&apos;s cooking. Thank you Paratha Junction!",
     avatar: "SP",
@@ -66,6 +67,14 @@ const testimonials = [
 export function TestimonialsSection() {
   const [activeIndex, setActiveIndex] = useState(0)
   const [autoPlay, setAutoPlay] = useState(true)
+  const sectionRef = useRef<HTMLElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  })
+  
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"])
+  const bannerX = useTransform(scrollYProgress, [0, 1], ["10%", "-30%"])
 
   useEffect(() => {
     if (!autoPlay) return
@@ -86,12 +95,12 @@ export function TestimonialsSection() {
   }
 
   return (
-    <section className="py-24 lg:py-32 relative overflow-hidden bg-black grain">
-      {/* Background */}
-      <div className="absolute inset-0 -z-10">
+    <section ref={sectionRef} className="py-24 lg:py-32 relative overflow-hidden bg-black grain">
+      {/* Background with Parallax */}
+      <motion.div style={{ y: bgY }} className="absolute inset-0 -z-10">
         <div className="absolute top-0 left-1/4 h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle,rgba(200,169,96,0.06)_0%,transparent_70%)]" />
         <div className="absolute bottom-0 right-1/4 h-[400px] w-[400px] rounded-full bg-[radial-gradient(circle,rgba(200,169,96,0.04)_0%,transparent_70%)]" />
-      </div>
+      </motion.div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -290,8 +299,27 @@ export function TestimonialsSection() {
         </motion.div>
       </div>
 
+      {/* Interactive Scroll Banner */}
+      <div className="absolute top-1/3 left-0 right-0 w-full overflow-hidden flex whitespace-nowrap opacity-[0.03] pointer-events-none select-none z-0">
+        <motion.div
+          style={{ x: bannerX }}
+          className="flex gap-12 items-center"
+        >
+          {[...Array(4)].map((_, i) => (
+            <div key={i} className="flex gap-12 items-center">
+              <span className="text-[15vw] font-black font-[family-name:var(--font-playfair)] tracking-tighter uppercase text-[#FFFDF2]">
+                Happy Customers
+              </span>
+              <span className="text-[15vw] font-black font-[family-name:var(--font-playfair)] tracking-tighter uppercase text-transparent" style={{ WebkitTextStroke: "2px #FFFDF2" }}>
+                500+
+              </span>
+            </div>
+          ))}
+        </motion.div>
+      </div>
+
       {/* Bottom Separator */}
-      <div className="absolute bottom-0 left-0 right-0 section-separator" />
+      <div className="absolute bottom-0 left-0 right-0 section-separator z-10" />
     </section>
   )
 }

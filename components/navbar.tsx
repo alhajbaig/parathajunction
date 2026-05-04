@@ -67,7 +67,7 @@ export function Navbar() {
                     Paratha Junction
                   </p>
                   <p className="text-[10px] text-muted-foreground font-medium tracking-widest uppercase font-[family-name:var(--font-poppins)]">
-                    Cloud Kitchen & Tiffin
+                    Premium Tiffin Service
                   </p>
                 </motion.div>
               </div>

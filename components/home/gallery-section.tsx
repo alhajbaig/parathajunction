@@ -28,7 +28,7 @@ const galleryItems = [
   {
     src: "/images/kitchen-cooking.png",
     alt: "Our professional cloud kitchen preparing fresh meals",
-    title: "Cloud Kitchen",
+    title: "Premium Kitchen",
     subtitle: "FSSAI certified hygiene",
     span: "col-span-1 row-span-1",
   },

@@ -8,6 +8,7 @@ import { DeliverySection } from "@/components/home/delivery-section"
 import { GallerySection } from "@/components/home/gallery-section"
 import { TestimonialsSection } from "@/components/home/testimonials-section"
 import { CTASection } from "@/components/home/cta-section"
+import { AboutSection } from "@/components/home/about-section"
 import { Preloader } from "@/components/preloader"
 
 export default function HomePage() {
@@ -17,6 +18,7 @@ export default function HomePage() {
       <Navbar />
       <HeroSection />
       <TrustSection />
+      <AboutSection />
       <FeaturesSection />
       <DeliverySection />
       <GallerySection />

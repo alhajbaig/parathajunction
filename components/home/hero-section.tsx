@@ -56,7 +56,7 @@ export function HeroSection() {
             >
               <span className="inline-flex items-center gap-2 rounded-full bg-black/5 px-5 py-2.5 text-sm font-medium text-black border border-black/10 shadow-sm">
                 <Sparkles className="h-4 w-4 text-[#C8A960]" />
-                <span className="font-[family-name:var(--font-poppins)]">Nagpur&apos;s No.1 Cloud Kitchen</span>
+                <span className="font-[family-name:var(--font-poppins)]">Nagpur&apos;s No.1 Tiffin Service</span>
               </span>
             </motion.div>
 
@@ -68,7 +68,7 @@ export function HeroSection() {
               className="space-y-5"
             >
               <h2 className="text-[#C8A960] font-[family-name:var(--font-poppins)] font-semibold tracking-wider uppercase text-sm sm:text-base">
-                Welcome to Paratha Junction Cloud Kitchen Tiffin Junction
+                Welcome to Paratha Junction Premium Tiffin Service
               </h2>
               <h1 className="text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl text-balance">
                 <span className="font-[family-name:var(--font-playfair)] italic text-black">Homely Meals,</span>{" "}
@@ -97,7 +97,7 @@ export function HeroSection() {
                 <span className="font-[family-name:var(--font-playfair)] italic text-black">Fresh Daily</span>
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed max-w-xl text-pretty font-[family-name:var(--font-poppins)]">
-                Experience the authentic taste of home with our premium cloud kitchen tiffin service. Fresh ingredients, hygienic preparation, on-time delivery — every single day.
+                Experience the authentic taste of home with our premium tiffin service. Fresh ingredients, hygienic preparation, on-time delivery — every single day.
               </p>
             </motion.div>
 
@@ -326,20 +326,41 @@ export function HeroSection() {
         </div>
       </motion.div>
 
+      {/* Interactive Scroll Banner */}
+      <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden flex whitespace-nowrap opacity-[0.15] pointer-events-none select-none z-0">
+        <motion.div
+          style={{ x: useTransform(scrollYProgress, [0, 1], ["0%", "-50%"]) }}
+          className="flex gap-12 items-center"
+        >
+          {[...Array(4)].map((_, i) => (
+            <div key={i} className="flex gap-12 items-center">
+              <span className="text-[12vw] font-black font-[family-name:var(--font-playfair)] tracking-tighter uppercase text-black">
+                Premium Tiffin
+              </span>
+              <Star className="h-12 w-12 text-black" />
+              <span className="text-[12vw] font-black font-[family-name:var(--font-playfair)] tracking-tighter uppercase text-transparent" style={{ WebkitTextStroke: "2px black" }}>
+                Fresh Daily
+              </span>
+              <Star className="h-12 w-12 text-black" />
+            </div>
+          ))}
+        </motion.div>
+      </div>
+
       {/* Scroll Indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
       >
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, type: "tween" }}
           className="flex flex-col items-center gap-2 text-muted-foreground"
         >
-          <span className="text-xs font-medium font-[family-name:var(--font-poppins)] tracking-widest uppercase">Scroll to explore</span>
-          <div className="h-10 w-6 rounded-full border-2 border-black/15 p-1.5 flex justify-center">
+          <span className="text-xs font-medium font-[family-name:var(--font-poppins)] tracking-widest uppercase bg-[#FFFDF2]/80 backdrop-blur-sm px-3 py-1 rounded-full border border-black/10">Scroll to explore</span>
+          <div className="h-10 w-6 rounded-full border-2 border-black/15 p-1.5 flex justify-center bg-[#FFFDF2]/50 backdrop-blur-sm">
             <motion.div
               animate={{ y: [0, 12, 0] }}
               transition={{ duration: 1.5, repeat: Infinity, type: "tween" }}
