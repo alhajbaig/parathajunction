@@ -158,7 +158,7 @@ export function Footer() {
                 </li>
                 <li className="flex justify-between gap-4">
                   <span>Dinner</span>
-                  <span className="font-medium text-[#FFFDF2]/70">7:00 - 9:00 PM</span>
+                  <span className="font-medium text-[#FFFDF2]/70">8:00 - 9:30 PM</span>
                 </li>
               </ul>
               <div className="pt-2">
@@ -223,13 +223,13 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:contact@parathajunction.com"
+                  href="mailto:parathajunctionno.1@gmail.com"
                   className="flex items-center gap-3 text-sm text-[#FFFDF2]/50 transition-colors hover:text-[#C8A960] group"
                 >
                   <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 group-hover:bg-[#C8A960]/15 transition-colors border border-white/5">
                     <Mail className="h-4 w-4" />
                   </div>
-                  <p className="font-medium text-[#FFFDF2]/70 truncate font-[family-name:var(--font-poppins)]">contact@parathajunction.com</p>
+                  <p className="font-medium text-[#FFFDF2]/70 truncate font-[family-name:var(--font-poppins)]">parathajunctionno.1@gmail.com</p>
                 </a>
               </li>
               <li className="flex items-start gap-3 text-sm text-[#FFFDF2]/50 pt-1">

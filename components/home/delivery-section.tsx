@@ -14,7 +14,7 @@ const coverageAreas = [
 ]
 
 const deliveryFeatures = [
-  { icon: Clock, label: "On-time every day", description: "Lunch: 12-2 PM • Dinner: 7-9 PM" },
+  { icon: Clock, label: "On-time every day", description: "Lunch: 12-2 PM • Dinner: 8-9:30 PM" },
   { icon: Truck, label: "Insulated delivery", description: "Food stays hot & fresh till your doorstep" },
   { icon: Phone, label: "24/7 Support", description: "Call/WhatsApp: 9021346598 • 8999246569 • 7498390485" },
 ]

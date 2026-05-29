@@ -11,38 +11,38 @@ import { Calendar, Utensils, Leaf, Flame, Clock, ArrowRight, ChevronLeft, Chevro
 const weeklyMenu = [
   {
     day: "Monday",
-    lunch: { main: "Sorshe Post Bhindi + Tamatar Chatni", sides: ["Roti", "Rice", "Salad"], type: "veg" },
-    dinner: { main: "Chula Fali Dry + Sengdana Bhujia Saak", sides: ["Roti", "Rice"], type: "veg" },
+    lunch: { main: "Sorshe Post Bhindi + Tamatar Chatni", sides: ["Roti", "Rice", "Salad", "Daal"], type: "veg" },
+    dinner: { main: "Chula Fali Dry + Sengdana Bhujia Saak", sides: ["Roti", "Rice", "Salad", "Daal"], type: "veg" },
   },
   {
     day: "Tuesday",
-    lunch: { main: "Karela Kaccha Aam Sabji + Aaloo Bhujiya", sides: ["Roti", "Rice", "Salad"], type: "veg" },
-    dinner: { main: "Kala Chana Masala + Baingan Bhujiya", sides: ["Roti", "Rice"], type: "veg" },
+    lunch: { main: "Karela Kaccha Aam Sabji + Aaloo Bhujiya", sides: ["Roti", "Rice", "Salad", "Daal"], type: "veg" },
+    dinner: { main: "Kala Chana Masala + Baingan Bhujiya", sides: ["Roti", "Rice", "Salad", "Daal"], type: "veg" },
   },
   {
     day: "Wednesday",
-    lunch: { main: "Topi Waale Aaloo + Parwal Dry", sides: ["Roti", "Rice", "Salad"], type: "veg" },
-    dinner: { main: "Allo Bhujiya + Boondi Kadhi", sides: ["Roti", "Rice"], type: "veg" },
+    lunch: { main: "Topi Waale Aaloo + Parwal Dry", sides: ["Roti", "Rice", "Salad", "Daal"], type: "veg" },
+    dinner: { main: "Allo Bhujiya + Boondi Kadhi", sides: ["Roti", "Rice", "Salad", "Daal"], type: "veg" },
   },
   {
     day: "Thursday",
-    lunch: { main: "Patta Gobhi Matar Aloo + Mirch Dahi Ki Sabji", sides: ["Roti", "Rice", "Salad"], type: "veg" },
-    dinner: { main: "Kanda Chana Dal Sabji + Kathal Fry Masala", sides: ["Roti", "Rice"], type: "veg" },
+    lunch: { main: "Patta Gobhi Matar Aloo + Mirch Dahi Ki Sabji", sides: ["Roti", "Rice", "Salad", "Daal"], type: "veg" },
+    dinner: { main: "Kanda Chana Dal Sabji + Kathal Fry Masala", sides: ["Roti", "Rice", "Salad", "Daal"], type: "veg" },
   },
   {
     day: "Friday",
-    lunch: { main: "Taroi Chana Daal + Kundru Dry", sides: ["Roti", "Rice", "Salad"], type: "veg" },
-    dinner: { main: "Bhoona Besan + Khade Baingan Fry Masala", sides: ["Roti", "Rice"], type: "veg" },
+    lunch: { main: "Taroi Chana Daal + Kundru Dry", sides: ["Roti", "Rice", "Salad", "Daal"], type: "veg" },
+    dinner: { main: "Bhoona Besan + Khade Baingan Fry Masala", sides: ["Roti", "Rice", "Salad", "Daal"], type: "veg" },
   },
   {
     day: "Saturday",
-    lunch: { main: "Afgaani Soya Masala + Gobhi Matar Aloo", sides: ["Roti", "Rice", "Salad"], type: "veg" },
-    dinner: { main: "Bhindi Do Pyaza + Hara Mater Bhujya", sides: ["Roti", "Rice"], type: "veg" },
+    lunch: { main: "Afgaani Soya Masala + Gobhi Matar Aloo", sides: ["Roti", "Rice", "Salad", "Daal"], type: "veg" },
+    dinner: { main: "Bhindi Do Pyaza + Hara Mater Bhujya", sides: ["Roti", "Rice", "Salad", "Daal"], type: "veg" },
   },
   {
     day: "Sunday",
-    lunch: { main: "Mix Vej + Kadhai Chole Masala", sides: ["Roti", "Rice", "Salad"], type: "special" },
-    dinner: { main: "Malai Kofta / Kaju Makhana Masala", sides: ["Roti", "Rice"], type: "special" },
+    lunch: { main: "Mix Vej + Kadhai Chole Masala", sides: ["Roti", "Rice", "Salad", "Daal"], type: "special" },
+    dinner: { main: "Malai Kofta / Kaju Makhana Masala", sides: ["Roti", "Rice", "Salad", "Daal"], type: "special", sweet: "Gulab Jamun" },
   },
 ]
 
@@ -60,7 +60,7 @@ const menuHighlights = [
   {
     icon: Clock,
     title: "On-Time Delivery",
-    description: "Lunch: 12-1:30 PM, Dinner: 7:30-9 PM",
+    description: "Lunch: 12:00 PM - 2:00 PM, Dinner: 8:00 PM - 9:30 PM",
   },
   {
     icon: Utensils,
@@ -198,7 +198,7 @@ export default function MenuPage() {
                     ☀️
                   </div>
                 </div>
-                <p className="mt-2 text-sm text-white/80">Delivery: 12:00 PM - 1:30 PM</p>
+                <p className="mt-2 text-sm text-white/80">Delivery: 12:00 PM - 2:00 PM</p>
               </div>
               <div className="p-6">
                 <div className="mb-4">
@@ -238,7 +238,7 @@ export default function MenuPage() {
                     🌙
                   </div>
                 </div>
-                <p className="mt-2 text-sm text-white/80">Delivery: 7:30 PM - 9:00 PM</p>
+                <p className="mt-2 text-sm text-white/80">Delivery: 8:00 PM - 9:30 PM</p>
               </div>
               <div className="p-6">
                 <div className="mb-4">
@@ -262,6 +262,11 @@ export default function MenuPage() {
                       </span>
                     ))}
                   </div>
+                  {weeklyMenu[selectedDay].dinner.sweet && (
+                    <div className="mt-3 rounded-2xl bg-amber-100 px-4 py-3 text-sm font-medium text-amber-900">
+                      Sweet extra: {weeklyMenu[selectedDay].dinner.sweet}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

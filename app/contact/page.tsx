@@ -44,9 +44,9 @@ const contactMethods = [
     icon: Mail,
     title: "Email",
     description: "For detailed inquiries",
-    primary: "contact@parathajunction.com",
+    primary: "parathajunctionno.1@gmail.com",
     secondary: "We respond within 24 hours",
-    action: "mailto:contact@parathajunction.com",
+    action: "mailto:parathajunctionno.1@gmail.com",
     actionLabel: "Send Email",
     color: "bg-blue-500/10 text-blue-600",
   },
@@ -354,14 +354,14 @@ export default function ContactPage() {
                     <span className="text-2xl">☀️</span>
                     <div>
                       <p className="font-medium text-foreground">Lunch Delivery</p>
-                      <p className="text-sm text-muted-foreground">12:00 PM - 1:30 PM</p>
+                      <p className="text-sm text-muted-foreground">12:00 PM - 2:00 PM</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
                     <span className="text-2xl">🌙</span>
                     <div>
                       <p className="font-medium text-foreground">Dinner Delivery</p>
-                      <p className="text-sm text-muted-foreground">7:30 PM - 9:00 PM</p>
+                      <p className="text-sm text-muted-foreground">8:00 PM - 9:30 PM</p>
                     </div>
                   </div>
                 </div>

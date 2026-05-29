@@ -100,7 +100,7 @@ const faqs = [
   },
   {
     question: "What are the delivery timings?",
-    answer: "Lunch is delivered between 12:00 PM - 1:30 PM and Dinner between 7:30 PM - 9:00 PM. You can set your preferred time slot.",
+    answer: "Lunch is delivered between 12:00 PM - 2:00 PM and Dinner between 8:00 PM - 9:30 PM. You can set your preferred time slot.",
   },
   {
     question: "Do you deliver to my area?",
