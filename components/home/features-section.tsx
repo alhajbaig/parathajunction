@@ -39,7 +39,7 @@ const features = [
   {
     icon: Truck,
     title: "Wide Coverage",
-    description: "Serving Sadar, Mankapur, Godhni, Zingabai Takli, Mangalwari, Seminary Hills, Civil Lines and many more areas.",
+    description: "Serving Sadar, Mankapur, Godhni, Zingabai Takli, Mangalwari, Seminary Hills and many more areas.",
     accent: "#C8A960",
   },
 ]

@@ -8,7 +8,7 @@ import { MapPin, Clock, Truck, Phone, CheckCircle } from "lucide-react"
 const coverageAreas = [
   "Sadar", "Mankapur", "Godhni", "Jafar Nagar",
   "Gittikhadan", "Friends Colony", "Borgaon", "Palloti Area",
-  "Anant Nagar", "Gorewada", "Om Nagar", "Civil Lines",
+  "Anant Nagar", "Gorewada",
   "Mangalwari", "Indora Chowk", "Zingabai Takli", "Kadbi Chowk",
   "Chhaoni", "Gaddigodam Square", "Raj Nagar", "Seminary Hills",
 ]
