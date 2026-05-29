@@ -100,7 +100,7 @@ export function Navbar() {
             {/* CTA Buttons */}
             <div className="hidden lg:flex items-center gap-3">
               <motion.a
-                href="tel:8999246569"
+                href="tel:9021346598"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium text-black/70 hover:text-black hover:bg-black/5 transition-all font-[family-name:var(--font-poppins)]"
@@ -231,9 +231,9 @@ export function Navbar() {
                 className="mt-4 pt-4 border-t border-[#C8A960]/15 flex flex-col gap-2"
               >
                 <Button variant="outline" asChild className="w-full rounded-xl h-12 border-black/10 font-[family-name:var(--font-poppins)]">
-                  <a href="tel:8999246569" className="flex items-center justify-center gap-2">
+                  <a href="tel:9021346598" className="flex items-center justify-center gap-2">
                     <Phone className="h-4 w-4" />
-                    <span>Call: 8999246569</span>
+                    <span>Call: 9021346598</span>
                   </a>
                 </Button>
 

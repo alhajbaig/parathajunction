@@ -23,7 +23,7 @@ const responses: Record<string, string> = {
   plan: "Our monthly plans include: Smart Subscription (₹2400/month for Lunch OR Dinner daily, ₹80/meal) and Premium Full Meal Plan (₹4800/month for Lunch + Dinner, ₹80/meal). Both plans include freshly cooked homely meals delivered to your doorstep!",
   weight: "Yes! Our meals are great for weight management. We use minimal oil, fresh vegetables, and balanced portions. For weight loss, we recommend our lunch-only subscription which provides around 500 calories per meal. Combine it with regular exercise for best results!",
   "low-carb": "For low-carb options, we can customize your tiffin to include extra vegetables and protein-rich dal instead of rice. Just let us know your preferences when subscribing, and we'll adjust your meals accordingly!",
-  default: "Thank you for your question! Our tiffin service offers fresh, hygienic, home-style meals delivered daily in Nagpur. For specific inquiries, please call us at 8999246569 or 7498390485. We're happy to help!",
+  default: "Thank you for your question! Our tiffin service offers fresh, hygienic, home-style meals delivered daily in Nagpur. For specific inquiries, please call or WhatsApp us at 9021346598 (primary), or reach out at 8999246569 or 7498390485. We're happy to help!",
 }
 
 function getResponse(message: string): string {

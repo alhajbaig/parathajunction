@@ -186,8 +186,8 @@ export function HeroSection() {
               >
                 <a
                   href={user 
-                    ? `https://wa.me/918999246569?text=${encodeURIComponent(`Hi, I'm ${user.name}. I'm interested in your tiffin service. Please share more details.`)}`
-                    : "https://wa.me/918999246569?text=Hi%2C%20I%27m%20interested%20in%20your%20tiffin%20service"
+                    ? `https://wa.me/919021346598?text=${encodeURIComponent(`Hi, I'm ${user.name}. I'm interested in your tiffin service. Please share more details.`)}`
+                    : "https://wa.me/919021346598?text=Hi%2C%20I%27m%20interested%20in%20your%20tiffin%20service"
                   }
                   target="_blank"
                   rel="noopener noreferrer"

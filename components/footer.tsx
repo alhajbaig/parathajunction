@@ -27,8 +27,8 @@ export function Footer() {
   const { user } = useAuth()
 
   const whatsappHref = user
-    ? `https://wa.me/918999246569?text=${encodeURIComponent(`Hi, I'm ${user.name}. I want to receive daily menu updates.`)}`
-    : "https://wa.me/918999246569?text=Hi%2C%20I%20want%20to%20receive%20daily%20menu%20updates"
+    ? `https://wa.me/919021346598?text=${encodeURIComponent(`Hi, I'm ${user.name}. I want to receive daily menu updates.`)}`
+    : "https://wa.me/919021346598?text=Hi%2C%20I%20want%20to%20receive%20daily%20menu%20updates"
 
   return (
     <footer className="relative overflow-hidden bg-black grain">
@@ -181,6 +181,20 @@ export function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
+                  href="tel:9021346598"
+                  className="flex items-center gap-3 text-sm text-[#FFFDF2]/50 transition-colors hover:text-[#C8A960] group"
+                >
+                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 group-hover:bg-[#C8A960]/15 transition-colors border border-white/5">
+                    <Phone className="h-4 w-4" />
+                  </div>
+                  <div>
+                    <p className="font-medium text-[#FFFDF2]/70 font-[family-name:var(--font-poppins)]">9021346598</p>
+                    <p className="text-xs text-[#FFFDF2]/30">Primary</p>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a
                   href="tel:8999246569"
                   className="flex items-center gap-3 text-sm text-[#FFFDF2]/50 transition-colors hover:text-[#C8A960] group"
                 >
@@ -189,7 +203,7 @@ export function Footer() {
                   </div>
                   <div>
                     <p className="font-medium text-[#FFFDF2]/70 font-[family-name:var(--font-poppins)]">8999246569</p>
-                    <p className="text-xs text-[#FFFDF2]/30">Primary</p>
+                    <p className="text-xs text-[#FFFDF2]/30">Secondary</p>
                   </div>
                 </a>
               </li>

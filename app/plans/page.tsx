@@ -162,7 +162,7 @@ export default function PlansPage() {
   const openWhatsApp = (planName: string, userName: string, address: string) => {
     const message = `Hi, I'm ${userName}. I'm interested in the ${planName} plan.\n\nDelivery Address: ${address}\n\nPlease help me subscribe. Thank you!`
     const encodedMessage = encodeURIComponent(message)
-    window.open(`https://wa.me/918999246569?text=${encodedMessage}`, "_blank")
+    window.open(`https://wa.me/919021346598?text=${encodedMessage}`, "_blank")
   }
 
   return (
@@ -413,7 +413,7 @@ export default function PlansPage() {
                 size="lg"
                 className="rounded-full"
               >
-                <a href="tel:8999246569">
+                <a href="tel:9021346598">
                   <Phone className="mr-2 h-4 w-4" />
                   Call Us
                 </a>
@@ -425,7 +425,7 @@ export default function PlansPage() {
                 className="rounded-full bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
               >
                 <a
-                  href="https://wa.me/918999246569"
+                  href="https://wa.me/919021346598"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
