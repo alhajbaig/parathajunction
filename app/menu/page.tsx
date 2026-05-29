@@ -11,94 +11,38 @@ import { Calendar, Utensils, Leaf, Flame, Clock, ArrowRight, ChevronLeft, Chevro
 const weeklyMenu = [
   {
     day: "Monday",
-    lunch: {
-      main: "Dal Tadka",
-      sides: ["Jeera Rice", "Roti (3)", "Aloo Gobi", "Salad"],
-      type: "veg",
-    },
-    dinner: {
-      main: "Rajma Masala",
-      sides: ["Steamed Rice", "Roti (3)", "Mixed Veg", "Pickle"],
-      type: "veg",
-    },
+    lunch: { main: "Sorshe Post Bhindi + Tamatar Chatni", sides: ["Roti", "Rice", "Salad"], type: "veg" },
+    dinner: { main: "Chula Fali Dry + Sengdana Bhujia Saak", sides: ["Roti", "Rice"], type: "veg" },
   },
   {
     day: "Tuesday",
-    lunch: {
-      main: "Paneer Butter Masala",
-      sides: ["Jeera Rice", "Butter Roti (3)", "Green Salad", "Raita"],
-      type: "veg",
-    },
-    dinner: {
-      main: "Chole",
-      sides: ["Puri (4)", "Onion Salad", "Pickle", "Papad"],
-      type: "veg",
-    },
+    lunch: { main: "Karela Kaccha Aam Sabji + Aaloo Bhujiya", sides: ["Roti", "Rice", "Salad"], type: "veg" },
+    dinner: { main: "Kala Chana Masala + Baingan Bhujiya", sides: ["Roti", "Rice"], type: "veg" },
   },
   {
     day: "Wednesday",
-    lunch: {
-      main: "Dal Fry",
-      sides: ["Steamed Rice", "Roti (3)", "Bhindi Fry", "Salad"],
-      type: "veg",
-    },
-    dinner: {
-      main: "Mix Veg Curry",
-      sides: ["Jeera Rice", "Roti (3)", "Dal", "Raita"],
-      type: "veg",
-    },
+    lunch: { main: "Topi Waale Aaloo + Parwal Dry", sides: ["Roti", "Rice", "Salad"], type: "veg" },
+    dinner: { main: "Allo Bhujiya + Boondi Kadhi", sides: ["Roti", "Rice"], type: "veg" },
   },
   {
     day: "Thursday",
-    lunch: {
-      main: "Kadhi Pakora",
-      sides: ["Steamed Rice", "Roti (3)", "Aloo Sabzi", "Papad"],
-      type: "veg",
-    },
-    dinner: {
-      main: "Palak Paneer",
-      sides: ["Jeera Rice", "Butter Roti (3)", "Salad", "Sweet"],
-      type: "veg",
-    },
+    lunch: { main: "Patta Gobhi Matar Aloo + Mirch Dahi Ki Sabji", sides: ["Roti", "Rice", "Salad"], type: "veg" },
+    dinner: { main: "Kanda Chana Dal Sabji + Kathal Fry Masala", sides: ["Roti", "Rice"], type: "veg" },
   },
   {
     day: "Friday",
-    lunch: {
-      main: "Sambar",
-      sides: ["Steamed Rice", "Roti (3)", "Dry Sabzi", "Coconut Chutney"],
-      type: "veg",
-    },
-    dinner: {
-      main: "Malai Kofta",
-      sides: ["Jeera Rice", "Naan (2)", "Green Salad", "Raita"],
-      type: "veg",
-    },
+    lunch: { main: "Taroi Chana Daal + Kundru Dry", sides: ["Roti", "Rice", "Salad"], type: "veg" },
+    dinner: { main: "Bhoona Besan + Khade Baingan Fry Masala", sides: ["Roti", "Rice"], type: "veg" },
   },
   {
     day: "Saturday",
-    lunch: {
-      main: "Shahi Paneer",
-      sides: ["Biryani Rice", "Roti (3)", "Raita", "Papad"],
-      type: "veg",
-    },
-    dinner: {
-      main: "Dal Makhani",
-      sides: ["Jeera Rice", "Butter Roti (3)", "Salad", "Pickle"],
-      type: "veg",
-    },
+    lunch: { main: "Afgaani Soya Masala + Gobhi Matar Aloo", sides: ["Roti", "Rice", "Salad"], type: "veg" },
+    dinner: { main: "Bhindi Do Pyaza + Hara Mater Bhujya", sides: ["Roti", "Rice"], type: "veg" },
   },
   {
     day: "Sunday",
-    lunch: {
-      main: "Veg Biryani",
-      sides: ["Raita", "Mirchi Ka Salan", "Papad", "Gulab Jamun"],
-      type: "special",
-    },
-    dinner: {
-      main: "Paneer Tikka Masala",
-      sides: ["Butter Naan (3)", "Green Salad", "Sweet Lassi", "Ice Cream"],
-      type: "special",
-    },
+    lunch: { main: "Mix Vej + Kadhai Chole Masala", sides: ["Roti", "Rice", "Salad"], type: "special" },
+    dinner: { main: "Malai Kofta / Kaju Makhana Masala", sides: ["Roti", "Rice"], type: "special" },
   },
 ]
 
